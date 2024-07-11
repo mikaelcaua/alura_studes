@@ -4,7 +4,7 @@ import ITarefa from '../../types/ITarefa';
 
 interface ListaProps {
     tarefas: ITarefa[];
-    selecionarTarefa: (id: number) => void;
+    selecionarTarefa: (id: number) => void
 }
 
 export default function Lista({ tarefas, selecionarTarefa }: ListaProps) {

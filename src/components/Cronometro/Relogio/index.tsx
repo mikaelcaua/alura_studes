@@ -1,6 +1,10 @@
 import style from './style.module.scss'
 
-export default function Relogio(){
+interface RelogioProps{
+    tempo:string
+}
+
+export default function Relogio({tempo}:RelogioProps){
     return(
         <>
             <span className={style.relogioNumero}>0</span>
