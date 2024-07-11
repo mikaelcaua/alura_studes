@@ -1,12 +1,12 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import './style.scss'
 
-export default class Botao extends React.Component{
+export default class Botao extends React.Component<{children:string | ReactElement}>{
     render() {
 
         return(
             <button className="botao">
-                Botao
+                {this.props.children}
             </button>
         )
     }

@@ -1,31 +1,21 @@
-import './style.scss'
+import Item from './Item';
+import './style.scss';
+import ITarefa from '../../types/ITarefa';
 
-export default function Lista(){
-    
+interface ListaProps {
+    tarefas: ITarefa[];
+    selecionarTarefa: (id: number) => void;
+}
 
-    const tarefas = [
-        {
-            name:'React',
-            time:'01:00:00'
-        },
-        {
-            name:'Java',
-            time:'01:30:00'
-        }
-    ]
-
-    return(
+export default function Lista({ tarefas, selecionarTarefa }: ListaProps) {
+    return (
         <aside className="listaTarefas">
             <h2>Tarefas do dia</h2>
-
             <ul>
-                {tarefas.map((t,index) => {
-                    return <li key={index} className='item'>
-                                <h3>{t.name}</h3>
-                                <span>{t.time}</span>
-                            </li>
+                {tarefas.map(tarefa => {
+                    return <Item key={tarefa.id} {...tarefa} selecionarTarefa={selecionarTarefa} />;
                 })}
             </ul>
         </aside>
-    )
+    );
 }
